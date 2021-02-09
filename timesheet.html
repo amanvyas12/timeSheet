@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">   
+
+ 
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Ubuntu&display=swap"
+        rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Front Page</title>
+    <link rel="stylesheet" href="timesheetCSS.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body onLoad="initClock()">
+    <!-- <nav class="navbar bg-blue" style="background-color:#003366; color:grey; width: 100%; ">
+        <a style="color:white "><img src=" https://www.celebaltech.com/assets/assets/img/celebal.webp" width="180 "
+                height="50 " class="d-inline-block align-top " alt=" "></a>
+        <form class="form-inline ">
+            <input class="form-control mr-sm-2 " type="search " placeholder="Search Employee " aria-label="Search ">
+            <button class="btn btn-outline-success my-2 my-sm-0 " type="submit ">Search</button>
+
+        </form>
+        <div id="timedate " style=" color: white; font-size: 30px;  float: right ">
+            <span id="tens" class="timeHeader"></span>
+        </div>
+
+    </nav> -->
+
+
+    <div class="row navdiv" id="nav">
+
+        <div class="col-md-2 ">
+
+            <select class="hoverItem" name="Select-Client" id="Select-Client">
+                <option value="" disabled selected hidden>Select Client</option>
+                <option value="Trainee">Trainee</option>
+                <option value="Intern">Intern</option>
+            </select>
+        </div>
+
+        <div class="col-md-2">
+            <select name="Select-Project" id="Select-Project" class="hoverItem">
+                <option value="" disabled selected hidden>Select Project</option>
+                <option value="Intern Management System">
+                    Intern Management System
+                </option>
+                <option value="Digicube-prod">Digicube-prod</option>
+                <option value="EY-Kotak">EY-Kotak</option>
+
+            </select>
+        </div>
+
+        <div class="col-md-2" style=" ">
+            <select name="Select-Job" id="Select-Job" class="hoverItem">
+                <option value="">Choose...</option>
+            </select>
+            <button type="button" class="btn btn-success" id="btnAdd" value="Add" onclick="Add()">Add Task</button>
+        </div>
+
+        <!-- <button title="Add the task" class="taskButton" aria-hidden="true" type="button" id="btnAdd" value="Add" onclick="Add()">Add Task</button> -->
+
+        <div class="col-md-2" style="">
+            <input id="text" type="text" placeholder="What are you working on?" name="name" size="25"
+                class="hoverItem" />
+        </div>
+
+        <div class="col-md-2" style=" ">
+            <select name="Billable" id="Billable" class="hoverItem">
+                <option value="" selected>Choose..</option>
+                <option value="Billable">Billable</option>
+                <option value="Non Billable">Non Billable</option>
+            </select>
+        </div>
+
+        <div class="col divclass">
+            <div>
+                <h2 style=" font-size: 16px; color: white;">
+                    <span id="hour">00</span> :
+                    <span id="min">00</span> :
+                    <span id="sec">00</span>
+                    <span id="milisec"></span>
+                </h2>
+            </div>
+
+            <button id="togglebtn " class="tooglebutton " onclick="togglebtn()">Check In</button>
+        </div>
+    </div>
+    <div>
+
+        <table class="table table-borderless " id="myTable">
+            <thead>
+                <tr>
+                    <th>Date: <p type="text" id="currentDate" style="color:black; display: inline;"></p>
+                    </th>
+
+                </tr>
+                <tr>
+                    <th> Client</th>
+                    <th>Project</th>
+                    <th>Job</th>
+                    <th>Desc.</th>
+                    <th></th>
+                    <th>Duration</th>
+                    <th></th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <footer class="page-footer font-small blue footer">
+        <button class="btn btn-outline-success  " type="submit "
+            style="margin-left: 5px; margin-top: 5px; margin-right: 10px; float:right ">Total</button>
+        <button class="btn btn-outline-success   " type="submit "
+            style="margin-left: 5px; margin-top: 5px; float:right ">Submitted</button>
+        <button class="btn btn-outline-success   " type="submit "
+            style="margin-left: 5px; margin-top: 5px; margin-top: 5px; float:right ">Not Submitted</button>
+    </footer>
+</body>
+
+
+<script src="timesheet.js" charset="utf-8"></script>
+
+</html>
