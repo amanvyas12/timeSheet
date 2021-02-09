@@ -15,7 +15,7 @@ var secNew = 00; /* holds incrementing value */
 var minNew = 00;
 var hourNew = 00;
 /* Contains and outputs returned value of  function checkTime */
-var miliSecOutNew = 0;
+var miliSecOutNew = 00;
 var secOutNew = 0;
 var minOutNew = 0;
 var hourOutNew = 0;
